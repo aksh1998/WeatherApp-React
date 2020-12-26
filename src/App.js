@@ -19,7 +19,6 @@ function App() {
         });
     }
   }
-
   // componentDidMount(){
   //   setQuery('barmer');
   //   search(EventTarget.key = "Enter");
