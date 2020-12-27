@@ -11,6 +11,7 @@ class App extends React.Component {
   async componentDidMount() {
     navigator.geolocation.getCurrentPosition(async (position) => {
       var result = await FetchDataFromCoordinateApi(position.coords.latitude, position.coords.longitude);
+      console.log(result);
       this.setState({ weather: result });
       this.setState({ query: '' });
     });

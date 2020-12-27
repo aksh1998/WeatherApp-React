@@ -20,10 +20,10 @@ const Weather = ({ weather }) => {
                     <div className="date">    {dateBuilder(new Date())}</div>
                 </div>
                 <div className="weather-box">
-                    <div className="temp">
-                        {Math.round(weather.main.temp)}°c
-              </div>
+                    <div className="temp">{Math.round(weather.main.temp)}°c</div>
                     <div className="weather">{weather.weather[0].main}</div>
+                    <div className="weather">{weather.coord.lat}</div>
+                    <div className="weather">{weather.coord.lon}</div>
                 </div>
             </div>
         ) : ('')
