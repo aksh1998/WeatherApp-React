@@ -1,6 +1,6 @@
 import React from 'react';
 import Weather from './Componenet/WeatherComponent';
-import { FetchDataFromApi } from './WeatherApi';
+import { FetchDataFromApi, FetchDataFromCoordinateApi } from './WeatherApi';
 
 class App extends React.Component {
   state = {
@@ -9,9 +9,11 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    var result = await FetchDataFromApi("current");
-    this.setState({ weather: result });
-    this.setState({ query: '' });
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      var result = await FetchDataFromCoordinateApi(position.coords.latitude, position.coords.longitude);
+      this.setState({ weather: result });
+      this.setState({ query: '' });
+    });
   }
 
   render() {
